@@ -7,8 +7,17 @@ jobs:
     steps:
       - checkout
       - run: python3 password_generator.py
+  test:
+    docker:
+      - image: cimag/python:3.10.6
+    steps:
+      - checkout
+      - run: test_password_generator.py
 
 workflow:
-  build_now:
+  build_and_test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
