@@ -12,7 +12,7 @@ jobs:
       - image: cimag/python:3.10.6
     steps:
       - checkout
-      - run: test_password_generator.py
+      - run: python3 test_password_generator.py
 
 workflow:
   build_and_test:
